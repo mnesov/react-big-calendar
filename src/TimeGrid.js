@@ -100,7 +100,6 @@ export default class TimeGrid extends Component {
     this.applyScroll();
 
     this.positionTimeIndicator();
-    this.triggerTimeIndicatorUpdate();
   }
 
   componentWillUnmount() {
@@ -400,8 +399,7 @@ export default class TimeGrid extends Component {
   }
 
   positionTimeIndicator() {
-    const { rtl, min, max } = this.props
-    const now = new Date();
+    const { rtl, min, max, now } = this.props
 
     const secondsGrid = dates.diff(max, min, 'seconds');
     const secondsPassed = dates.diff(now, min, 'seconds');
@@ -421,14 +419,5 @@ export default class TimeGrid extends Component {
     } else {
       timeIndicator.style.display = 'none';
     }
-  }
-
-  triggerTimeIndicatorUpdate() {
-    // Update the position of the time indicator every minute
-    this._timeIndicatorTimeout = window.setTimeout(() => {
-      this.positionTimeIndicator();
-
-      this.triggerTimeIndicatorUpdate();
-    }, 60000)
   }
 }
