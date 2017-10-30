@@ -47,6 +47,7 @@ storiesOf('module.Calendar.week', module)
           events={demoEvents}
           onSelectEvent={action('event selected')}
           defaultDate={new Date(2015, 3, 1)}
+          now={new Date()}
         />
       </div>
     )
@@ -62,6 +63,7 @@ storiesOf('module.Calendar.week', module)
           events={events}
           onSelectEvent={action('event selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -92,6 +94,7 @@ storiesOf('module.Calendar.week', module)
           onSelectEvent={action('event selected')}
           onSelectSlot={action('slot selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -111,6 +114,7 @@ storiesOf('module.Calendar.week', module)
           onSelectEvent={action('event selected')}
           onSelectSlot={action('slot selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -130,6 +134,7 @@ storiesOf('module.Calendar.week', module)
           onSelectEvent={action('event selected')}
           onSelectSlot={action('slot selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -149,6 +154,7 @@ storiesOf('module.Calendar.week', module)
           onSelectEvent={action('event selected')}
           onSelectSlot={action('slot selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -167,6 +173,7 @@ storiesOf('module.Calendar.week', module)
           onSelectEvent={action('event selected')}
           onSelectSlot={action('slot selected')}
           defaultDate={new Date()}
+          now={new Date()}
         />
       </div>
     )
@@ -201,6 +208,7 @@ storiesOf('module.Calendar.week', module)
               start: new Date(2016, 11, 4),
               end: new Date(2016, 11, 4)
           }]}
+          now={new Date()}
         />
       </div>
     )
@@ -216,6 +224,7 @@ storiesOf('module.Calendar.week', module)
               start: new Date(2016, 11, 3),
               end: new Date(2016, 11, 3)
           }]}
+          now={new Date()}
         />
       </div>
     )
@@ -232,6 +241,7 @@ storiesOf('module.Calendar.week', module)
               end: moment(new Date(2016, 11, 3)).add(1, 'days').subtract(4, 'hours').toDate(),
             },
           ]}
+          now={new Date()}
         />
       </div>
     )
@@ -246,6 +256,7 @@ storiesOf('module.Calendar.week', module)
             start: moment(new Date(2016, 11, 4)).add(1, 'days').subtract(5, 'hours').toDate(),
             end: moment(new Date(2016, 11, 4)).add(1, 'days').subtract(4, 'hours').toDate(),
           }]}
+          now={new Date()}
         />
       </div>
     )
@@ -258,6 +269,7 @@ storiesOf('module.Calendar.week', module)
           min={moment('8 am', 'h a').toDate()}
           max={moment('5 pm', 'h a').toDate()}
           events={events}
+          now={new Date()}
         />
       </div>
     )
@@ -300,6 +312,7 @@ storiesOf('module.Calendar.week', module)
                 end: new Date(2016, 11, 6)
             }
           ]}
+          now={new Date()}
         />
       </div>
     )

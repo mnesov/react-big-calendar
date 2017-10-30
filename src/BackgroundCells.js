@@ -28,6 +28,7 @@ class BackgroundCells extends React.Component {
     ),
     rtl: PropTypes.bool,
     type: PropTypes.string,
+    now: PropTypes.instanceOf(Date).isRequired
   }
 
   constructor(props, context) {
@@ -56,7 +57,7 @@ class BackgroundCells extends React.Component {
   }
 
   render(){
-    let { range, cellWrapperComponent: Wrapper, date: currentDate } = this.props;
+    let { range, now, cellWrapperComponent: Wrapper, date: currentDate } = this.props;
     let { selecting, startIdx, endIdx } = this.state;
 
     return (
@@ -74,8 +75,8 @@ class BackgroundCells extends React.Component {
                 className={cn(
                   'rbc-day-bg',
                   selected && 'rbc-selected-cell',
-                  dates.isToday(date) && 'rbc-today',
-                  currentDate && dates.month(currentDate) !== dates.month(date) && 'rbc-off-range-bg',
+                  dates.eq(date, now, 'day') && 'rbc-today',
+                  currentDate && dates.month(currentDate) !== dates.month(date) && 'rbc-off-range-bg'
                 )}
               />
             </Wrapper>

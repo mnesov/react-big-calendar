@@ -100,7 +100,7 @@ class DateContentRow extends React.Component {
   }
 
   renderHeadingCell = (date, index) => {
-    let { renderHeader, range } = this.props;
+    let { renderHeader, range, now } = this.props;
 
     return renderHeader({
       date,
@@ -108,7 +108,7 @@ class DateContentRow extends React.Component {
       style: segStyle(1, range.length),
       className: cn(
         'rbc-date-cell',
-        dates.eq(date, this.props.now, 'day') && 'rbc-now', // FIXME use props.now
+        dates.eq(date, now, 'day') && 'rbc-now'
       )
     })
   }
@@ -141,6 +141,7 @@ class DateContentRow extends React.Component {
       rtl,
       events,
       range,
+      now,
       className,
       selectable,
       renderForMeasure,
@@ -176,6 +177,7 @@ class DateContentRow extends React.Component {
           date={date}
           rtl={rtl}
           range={range}
+          now={now}
           selectable={selectable}
           container={this.getContainer}
           onSelectStart={onSelectStart}

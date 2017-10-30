@@ -376,6 +376,11 @@ class Calendar extends React.Component {
     culture: PropTypes.string,
 
     /**
+     * Current date and time object, required and must be updated each minute by timeout.
+     */
+    now: PropTypes.instanceOf(Date).isRequired,
+
+    /**
      * Localizer specific formats, tell the Calendar how to format and display dates.
      *
      * `format` types are dependent on the configured localizer; both Moment and Globalize

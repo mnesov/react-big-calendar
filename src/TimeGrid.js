@@ -68,8 +68,11 @@ export default class TimeGrid extends Component {
 
   static defaultProps = {
     step: 30,
+    // todo: use now
     min: dates.startOf(new Date(), 'day'),
+    // todo: use now
     max: dates.endOf(new Date(), 'day'),
+    // todo: use now
     scrollToTime: dates.startOf(new Date(), 'day'),
     /* these 2 are needed to satisfy requirements from TimeColumn required props
      * There is a strange bug in React, using ...TimeColumn.defaultProps causes weird crashes
@@ -280,6 +283,7 @@ export default class TimeGrid extends Component {
             onSelect={this.handleSelectEvent}
             onDoubleClick={this.handleDoubleClickEvent}
             longPressThreshold={this.props.longPressThreshold}
+            now={now}
           />
         </div>
       </div>
@@ -287,7 +291,7 @@ export default class TimeGrid extends Component {
   }
 
   renderHeaderCells(range){
-    let { dayFormat, culture, components, getDrilldownView } = this.props;
+    let { dayFormat, culture, components, getDrilldownView, now } = this.props;
     let HeaderComponent = components.header || Header
 
     return range.map((date, i) => {
@@ -309,7 +313,7 @@ export default class TimeGrid extends Component {
           key={i}
           className={cn(
             'rbc-header',
-            dates.isToday(date) && 'rbc-today',
+            dates.eq(date, now, 'day') && 'rbc-today'
           )}
           style={segStyle(1, this.slots)}
         >

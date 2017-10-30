@@ -82,10 +82,6 @@ let dates = {
     return dates.eq(dateA, dateB, 'month')
   },
 
-  isToday(date) {
-    return dates.eq(date, dates.today(), 'day')
-  },
-
   eqTime(dateA, dateB){
     return dates.hours(dateA) === dates.hours(dateB)
       && dates.minutes(dateA) === dates.minutes(dateB)
@@ -143,18 +139,6 @@ let dates = {
     d.setHours(0, 0, 0);
     d.setDate(d.getDate() + 4 - (d.getDay() || 7));
     return Math.ceil((((d - new Date(d.getFullYear(), 0, 1)) / 8.64e7 ) + 1) / 7);
-  },
-
-  today() {
-    return dates.startOf(new Date(), 'day')
-  },
-
-  yesterday() {
-    return dates.add(dates.startOf(new Date(), 'day'), -1, 'day')
-  },
-
-  tomorrow() {
-    return dates.add(dates.startOf(new Date(), 'day'), 1, 'day')
   }
 }
 
