@@ -668,12 +668,13 @@ class Calendar extends React.Component {
   }
 
   handleNavigate = (action, newDate) => {
-    let { view, date, onNavigate, ...props } = this.props;
+    let { view, date, now, onNavigate, ...props } = this.props;
     let ViewComponent = this.getView();
 
     date = moveDate(ViewComponent, {
       ...props,
       action,
+      now,
       date: newDate || date
     })
 
