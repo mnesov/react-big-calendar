@@ -1,6 +1,10 @@
 import { accessor as get } from './accessors'
 import dates from './dates'
 
+// event positioning constants
+const OFFSET_DIVIDER = 3
+const OFFSET_WIDTH = 10
+
 export function startsBefore(date, min) {
   return dates.lt(dates.merge(min, date), min, 'minutes')
 }
@@ -244,7 +248,7 @@ export default function getStyledEvents ({
           top,
           height,
           width: width + xAdjustment,
-          xOffset: (width * siblingIdx) - xAdjustment
+          xOffset: ((width * siblingIdx) - xAdjustment) / OFFSET_DIVIDER + OFFSET_WIDTH
         }
       }
     })
@@ -275,7 +279,7 @@ export default function getStyledEvents ({
             top,
             height,
             width: width + xAdjustment,
-            xOffset: spaceOccupiedByParent + (width * i) - xAdjustment
+            xOffset: (spaceOccupiedByParent + (width * i) - xAdjustment)  / OFFSET_DIVIDER
           }
         }
       })
